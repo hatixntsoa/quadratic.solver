@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic Equation Solver</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <canvas id="canvas1"></canvas>
+
+    <div class="container">
+        <div class="card_container">
+            <div class="card">
+                <div class="content">
+                    <h1>ax² + bx + c = 0</h1><br><br>
+                    <form action="" name="data" autocomplete="off">
+                        <label for="a" style="user-select: none;">a:</label>
+                        <input type="text" name="a" id="a" step="any" required class="equation_input"><br><br>
+            
+                        <label for="b" style="user-select: none;">b:</label>
+                        <input type="text" name="a" id="b" step="any" required class="equation_input"><br><br>
+            
+                        <label for="c" style="user-select: none;">c:</label>
+                        <input type="text" name="a" id="c" step="any" required class="equation_input"><br><br>
+                    </form><br>
+                    <button type="submit" class="solve" style="cursor: pointer; color: rgb(7, 176, 255); user-select: none; letter-spacing: 1px;" onclick="solve()">Solve</button><br><br>
+                    <button class="reset" style="cursor: pointer; color: rgb(249, 44, 44); user-select: none; letter-spacing: 1px;" onClick="reset()">Reset</button>
+                </div>
+            </div>
+    
+            <div class="card">
+                <div class="content" id="result" style="user-select: none;">
+                    <h1>Results</h1>
+                    <div class="equation_display"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Include your scripts here -->
+    <script src="jquery.min.js"></script>
+    <script src="selector.js"></script>
+    <script src="fraction.js"></script>
+    <script src="solver.js"></script>
+    <script src="particle.js"></script>
+</body>
+</html>
