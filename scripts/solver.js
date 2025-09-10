@@ -34,8 +34,6 @@ function solve() {
         return;
     }
 
-    // Add more conditions and outcomes here...
-
     // If none of the specific cases match
     // Perform the general quadratic equation solution
     const delta = b * b - 4 * a * c;
