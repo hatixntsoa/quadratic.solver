@@ -1,8 +1,9 @@
 //Particles script
-const canvas2 = document.getElementById("canvas1");
-const ctx = canvas2.getContext('2d');
-canvas2.width = window.innerWidth;
-canvas2.height =window.innerHeight;
+const particleCanvas = document.getElementById("particle");
+const ctx = particleCanvas.getContext('2d');
+
+particleCanvas.width = window.innerWidth;
+particleCanvas.height =window.innerHeight;
 
 let particlesArray;
 
@@ -28,10 +29,10 @@ class Particle {
     //check particle position, check mouse position, move the particle, draw the particle
     update() {
         //check if particle is still winthin canvas
-        if(this.x > canvas2.width || this.x < 0) {
+        if(this.x > particleCanvas.width || this.x < 0) {
             this.directionX = -this.directionX;
         }
-        if(this.y > canvas2.height || this.y < 0) {
+        if(this.y > particleCanvas.height || this.y < 0) {
             this.directionY = -this.directionY;
         }
 
@@ -47,7 +48,7 @@ class Particle {
 //create particle array
 function init() {
     particlesArray = [];
-    let numberOfParticles = (canvas2.height * canvas2.width) / 12000;
+    let numberOfParticles = (particleCanvas.height * particleCanvas.width) / 12000;
 
     for (let i = 0; i < numberOfParticles; i++) { //INCREASE HERE THE NUMBER OF PARTICLES
         let size = (Math.random() * 5) + 2;//INCREASE PARTICLE SIZE
@@ -69,7 +70,7 @@ function connect() {
     for (let a = 0; a < particlesArray.length; a++) {
         for (let b = a;  b < particlesArray.length; b++) {
             let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-            if(distance < (canvas2.width / 7) * (canvas2.height / 7)) {
+            if(distance < (particleCanvas.width / 7) * (particleCanvas.height / 7)) {
                 opacityValue = 1 - (distance / 20000);
                 ctx.strokeStyle = 'rgba(255,255,255,' + opacityValue + ')';//COLOR OF CONNECTIONS
                 ctx.lineWidth = 2;
@@ -96,8 +97,8 @@ function animate() {
 //resize event
 window.addEventListener('resize',
     function() {
-        canvas2.width = innerWidth;
-        canvas2.height = innerHeight;
+        particleCanvas.width = innerWidth;
+        particleCanvas.height = innerHeight;
         init();
     }
 );

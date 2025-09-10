@@ -38,7 +38,7 @@ body{
 }
 
 /* Particles */
-#canvas1{
+#particle{
     position: absolute;
     top: 0; left: 0;
     width: 100%;
